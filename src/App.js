@@ -1,3 +1,6 @@
+import React from 'react';
+import { render } from 'react-dom';
+
 const Pet = ({ name, animal, breed }) => {
   return React.createElement('div', {}, [
     React.createElement('h1', {}, name),
@@ -27,8 +30,8 @@ const App = () => {
   ]);
 };
 
-// render in the browser
-ReactDOM.render(
+// render in the browser with ReactDOM
+render(
   React.createElement(App),
   // where to render
   document.getElementById('root')
