@@ -1,0 +1,20 @@
+{
+  "name": "adopt-me",
+  "version": "1.0.0",
+  "description": "Project from scratch from course 'Complete Intro to React, v5' by Frontendmasters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simotae14/adopt-me.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simotae14/adopt-me/issues"
+  },
+  "homepage": "https://github.com/simotae14/adopt-me#readme"
+}
