@@ -1,0 +1,17 @@
+{
+  "extends": ["eslint:recommended", "prettier", "prettier/react"], // sets of rules we use
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module", // to use import/export
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    // defining global variables
+    "es6": true,
+    "browser": true,
+    "node": true
+  }
+}
