@@ -1,18 +1,24 @@
 // mostly code from reactjs.org/docs/error-boundaries.html
 import React, { Component } from 'react';
-import { Link } from '@reach/router';
+import { Link, Redirect } from '@reach/router';
 
 class ErrorBoundary extends Component {
-  state = {
-    hasErrors: false,
-  };
+  state = { hasError: false, redirect: false };
   static getDerivedStateFromError() {
     return { hasErrors: true };
   }
   componentDidCatch(error, info) {
     console.error('Error boundary caught an error', error, info);
   }
+  componentDidUpdate() {
+    if (this.state.hasErrors) {
+      setTimeout(() => this.setState({ redirect: true }), 5000);
+    }
+  }
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/" noThrow />;
+    }
     if (this.state.hasErrors) {
       return (
         <h1>

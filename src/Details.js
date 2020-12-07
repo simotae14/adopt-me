@@ -7,7 +7,7 @@ import ErrorBoundary from './ErrorBoundary';
 class Details extends React.Component {
   state = { loading: true };
   componentDidMount() {
-    // throw new Error('lol');
+    throw new Error('lol');
     pet.animal(this.props.id).then(({ animal }) => {
       this.setState({
         name: animal.name,
@@ -20,6 +20,7 @@ class Details extends React.Component {
       });
     }, console.error);
   }
+
   render() {
     if (this.state.loading) {
       return <h1>loading ... </h1>;
