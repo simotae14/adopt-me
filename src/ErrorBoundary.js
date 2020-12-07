@@ -6,10 +6,8 @@ class ErrorBoundary extends Component {
   state = {
     hasErrors: false,
   };
-  static getDerivedStateFromErrors() {
-    return {
-      hasErrors: true,
-    };
+  static getDerivedStateFromError() {
+    return { hasErrors: true };
   }
   componentDidCatch(error, info) {
     console.error('Error boundary caught an error', error, info);
@@ -19,7 +17,7 @@ class ErrorBoundary extends Component {
       return (
         <h1>
           There was an error with this listing. <Link to="/">Click here</Link>{' '}
-          to go back to the home page or wait five seconds.
+          to back to the home page or wait five seconds.
         </h1>
       );
     }
