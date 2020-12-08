@@ -4,6 +4,7 @@
   "description": "Project from scratch from course 'Complete Intro to React, v5' by Frontendmasters",
   "main": "index.js",
   "scripts": {
+    "clear-build-cache": "rm -rf .cache/ dist/",
     "dev": "parcel src/index.html",
     "dev:mock": "cross-env PET_MOCK=mock npm run dev",
     "format": "prettier --write \"src/**/*.{js,html}\" --write",
