@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from '@reach/router';
 import { css } from '@emotion/react';
-
-const color = 'pink';
+// import
+import colors from './colors';
 
 const NavBar = () => {
   const [padding, setPadding] = useState(15);
@@ -10,12 +10,23 @@ const NavBar = () => {
     <header
       onClick={() => setPadding(padding + 15)}
       css={css`
-        background-color: ${color};
-        padding: ${padding}px;
+        background-color: ${colors.dark};
+        position: sticky;
+        top: 0;
+        z-index: 10;
       `}
     >
       <Link to="/">Adopt Me!</Link>
-      <span aria-label="logo" role="img">
+      <span
+        css={css`
+          font-size: 60px;
+          &:hover {
+            text-decoration: underline;
+          }
+        `}
+        aria-label="logo"
+        role="img"
+      >
         🐩
       </span>
     </header>
