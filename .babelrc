@@ -1,12 +1,23 @@
 {
-  "presets": ["@babel/preset-react", "@babel/preset-env"],
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-env",
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "sourceMap": false
+      }
+    ]
+  ],
   "plugins": [
+    ["transform-inline-environment-variables"],
     [
       "@babel/plugin-transform-runtime",
       {
         "regenerator": true,
         "corejs": 3
       }
-    ]
+    ],
+    ["@emotion"]
   ]
 }
