@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-// retrieve modal entry point
-const modalRoot = document.getElementById('modal');
-
 const Modal = ({ children }) => {
   const elRef = useRef(null);
   if (!elRef.current) {
@@ -11,6 +8,8 @@ const Modal = ({ children }) => {
   }
   // when it renders the first time
   useEffect(() => {
+    // retrieve modal entry point
+    const modalRoot = document.getElementById('modal');
     // add wrapper modal
     modalRoot.appendChild(elRef.current);
     // run on the onmount, when you close modal

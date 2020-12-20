@@ -26,9 +26,4 @@ const App = () => {
   );
 };
 
-// render in the browser with ReactDOM
-render(
-  <App />,
-  // where to render
-  document.getElementById('root')
-);
+export default App;
