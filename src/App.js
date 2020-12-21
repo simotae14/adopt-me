@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { render } from 'react-dom';
 import { Link, Router } from '@reach/router';
 
 import SearchParams from './SearchParams';

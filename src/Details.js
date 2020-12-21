@@ -8,7 +8,10 @@ import ErrorBoundary from './ErrorBoundary';
 import ThemeContext from './ThemeContext';
 
 class Details extends React.Component {
-  state = { loading: true, showModal: false };
+  constructor(props) {
+    super(props);
+    this.state = { loading: true, showModal: false };
+  }
   componentDidMount() {
     // throw new Error('lol');
     pet.animal(this.props.id).then(({ animal }) => {
