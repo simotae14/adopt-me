@@ -1,6 +1,6 @@
 import express from 'express';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToNodeStream, renderToString } from 'react-dom/server';
 import { ServerLocation } from '@reach/router';
 import fs from 'fs';
 import App from '../src/App';
@@ -21,6 +21,8 @@ app.use('/dist', express.static('dist'));
 
 // define a middleware to use for every request
 app.use((req, res) => {
+  // send immediately the html part with css
+  res.write(parts[0]);
   // definre react markup
   const reactMarkup = (
     <ServerLocation url={req.url}>
@@ -28,8 +30,15 @@ app.use((req, res) => {
     </ServerLocation>
   );
 
-  res.send(`${parts[0]}${renderToString(reactMarkup)}${parts[1]}`);
-  res.end();
+  // create the stream with the reactMarkup
+  const stream = renderToNodeStream(reactMarkup);
+  stream.pipe(res, {
+    end: false,
+  });
+  stream.on('end', () => {
+    res.write(parts[1]);
+    res.end();
+  });
 });
 
 console.log('listening on ' + PORT);
