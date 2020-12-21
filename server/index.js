@@ -1,6 +1,6 @@
 import express from 'express';
 import React from 'react';
-import { renderToNodeStream, renderToString } from 'react-dom/server';
+import { renderToNodeStream } from 'react-dom/server';
 import { ServerLocation } from '@reach/router';
 import fs from 'fs';
 import App from '../src/App';
